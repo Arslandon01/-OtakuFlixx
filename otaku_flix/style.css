@@ -1,0 +1,447 @@
+@font-face {
+  font-family: 'AnimeInept';
+  src: url('fonts/Heroking-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'JapanBento';
+  src: url('fonts/JapanBento-DemoVersion-Regular.woff2') format('truetype');
+}
+
+
+
+/* Global font */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'AnimeInept', sans-serif;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 100px;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.8); /* dark translucent purple-black */
+    display: flex;
+    align-items: center;
+    z-index: 99;
+}
+.logo {
+  font-family: 'Cinzel', serif;
+  font-size: 35px;
+  color: #ff2ca0;
+  margin-right:auto ;
+  text-shadow: 0 0 15px #aa007a, 0 0 25px #ff2ca0;
+  letter-spacing: 4px;
+transition: .2s ease;
+}
+
+.logo:hover {
+    color: #ff73d1;
+    text-shadow: 0 0 10px #ff73d1, 0 0 20px #d65ca1;
+}
+nav a {
+    color: #b583c6; /* muted lavender */
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: color 0.3s ease, text-shadow 0.4s ease;
+    font-size: 20px;
+}
+nav a:hover {
+    color: #ff73d1;
+    text-shadow: 0 0 12px #ff73d1, 0 0 25px #d65ca1;
+}
+.user-auth {
+    margin-left: 40px;
+}
+.user-auth .login-btn-modal {
+    height: 40px;
+    padding: 0 35px;
+    background: transparent;
+    border: 2px solid #d65ca1;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #d65ca1;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.4s ease;
+}
+.user-auth .login-btn-modal:hover {
+    background: #d65ca1;
+    color: #1a001a;
+    box-shadow: 0 0 18px #ff73d1;
+    transform: scale(1.05);
+}
+.hero {
+  display: grid;
+  place-items: center;
+  min-height: 100dvh;
+  padding: 2rem;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(10, 10, 10, 0.95));
+  color: white;
+  font-family: 'Japan Bento', sans-serif;
+  position: relative;
+  overflow: hidden;
+}
+.hero::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-image: url('img/goku-black-live-wallpaper-gif-1920x1080.jpg'); 
+  background-size: cover;
+  background-position: center;
+  opacity: 1; 
+  z-index: -1;
+  filter: brightness(0.6);
+  animation: fadeIn 2s ease-in-out;
+}
+.hero-content {
+  max-width: 900px;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 3rem 2rem;
+  border-radius: 20px;
+  text-align: center;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px rgba(255, 0, 144, 0.3);
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  color: #ff70d9;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 15px #a300a3;
+  animation: textGlow 4s ease-in-out infinite alternate;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: #ccc;
+  margin-bottom: 2rem;
+}
+
+.hero-btn {
+  display: inline-block;
+  padding: 0.75rem 2.2rem;
+  background-color: #ff4d4d;
+  color: white;
+  border: none;
+  border-radius: 30px;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.hero-btn:hover {
+  background-color: #e60000;
+  transform: scale(1.05);
+}
+
+
+.auth-modal {
+    position: fixed;
+    width: 420px;
+    height: 440px;
+    background: rgba(25, 0, 35, 0.85);
+    border: 1px solid rgba(255, 115, 209, 0.5);
+    border-radius: 20px;
+    box-shadow: 0 0 30px rgba(255, 115, 209, 0.8);
+    backdrop-filter: blur(6px);
+    color: #dca3d8;
+    inset: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    transition: height 0.2s ease, transform 0.5s ease;
+    transform: scale(0);
+}
+.auth-modal.show {
+    transform: scale(1);
+}
+.auth-modal.slide {
+    height: 520px;
+}
+.auth-modal .form-box {
+    width: 100%;
+    padding: 40px;
+}
+.auth-modal .form-box.login,
+.auth-modal.slide .form-box.form-box.register {
+    transform: translateX(0);
+    transition: transform 0.18s ease;
+    top: 35px;
+}
+.auth-modal.slide .form-box.login {
+    transform: translateX(-400px);
+    transition: none;
+}
+.auth-modal .form-box.register {
+    position: absolute;
+    transform: translateX(400px);
+    top: 30px;
+}
+.form-box h2 {
+    font-size: 35px;
+    text-align: center;
+    color: #ff73d1;
+    text-shadow: 0 0 15px #d65ca1;
+}
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 40px;
+    margin: 30px 0;
+}
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: 2px solid rgba(215, 92, 161, 0.5);
+    outline: none;
+    border-radius: 40px;
+    font-size: 16px;
+    color: #dca3d8;
+    padding: 20px 45px 20px 20px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.input-box input::placeholder {
+    color: #a47aa6;
+}
+.input-box input:focus {
+    border-color: #ff73d1;
+    box-shadow: 0 0 12px #ff73d1;
+}
+.input-box i {
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #dca3d8;
+}
+.btn {
+    width: 100%;
+    height: 45px;
+    background: #d65ca1;
+    border-radius: 40px;
+    border: none;
+    box-shadow: 0 0 15px rgba(214, 92, 161, 0.8);
+    color: #1a001a;
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+}
+.btn:hover {
+    background: #ff73d1;
+    color: #390039;
+    box-shadow: 0 0 25px #ff73d1;
+    transform: scale(1.1);
+    animation: pulseGlow 1.8s ease-in-out infinite;
+}
+.form-box p {
+    font-size: 15px;
+    text-align: center;
+    margin: 20px 10px;
+    color: #a47aa6;
+}
+.form-box p a {
+    color: #d65ca1;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+}
+.form-box p a:hover {
+    color: #ff73d1;
+    text-shadow: 0 0 12px #ff73d1;
+    text-decoration: underline;
+}
+.auth-modal .close-btn-modal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 45px;
+    height: 45px;
+    background: #d65ca1;
+    border: none;
+    border-bottom-left-radius: 20px;
+    font-size: 35px;
+    color: #1a001a;
+    z-index: 1;
+    cursor: pointer;
+    transition: background 0.3s ease, color 0.3s ease;
+}
+.auth-modal .close-btn-modal:hover {
+    background: #ff73d1;
+    color: #390039;
+    box-shadow: 0 0 18px #ff73d1;
+}
+.profile-box .avatar-circle {
+    width: 40px;
+    height: 40px;
+    background: #d65ca1;
+    border-radius: 50%;
+    line-height: 40px;
+    text-align: center;
+    font-size: 25px;
+    color: #1a001a;
+    font-weight: 600;
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+.profile-box .avatar-circle:hover {
+    box-shadow: 0 0 25px #ff73d1;
+}
+.profile-box .dropdown {
+    position: absolute;
+    top: 85px;
+    right: 100px;
+    padding: 10px;
+    background: #d65ca1;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    transform: translateY(20px);
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.5s ease;
+    color: #1a001a;
+}
+.profile-box.show .dropdown {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+}
+.profile-box .dropdown a {
+    padding: 12px 12px;
+    border-radius: 4px;
+    color: #1a001a;
+    text-decoration: none;
+    font-weight: 500;
+    margin: 2px 0;
+    transition: background 0.2s ease;
+}
+.profile-box .dropdown a:hover {
+    background: rgba(255, 115, 209, 0.6);
+    color: #390039;
+}
+.alert-box {
+    position: fixed;
+    inset: 0;
+    top: 35px;
+    margin: 0 auto;
+    width: 350px;
+    height: 70px;
+    background: #d65ca1;
+    border-radius: 6px;
+    padding: 0 15px;
+    z-index: 100;
+    overflow: hidden;
+    transform: translateY(calc(-100% - 35px));
+    transition: 0.5s ease;
+    color: #1a001a;
+}
+.alert-box.show {
+    transform: translateY(0);
+}
+.alert {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    font-weight: 500;
+    color: #1a001a;
+}
+.alert::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: #ff73d1;
+    animation: progress 6s linear forwards;
+}
+.alert.error::after {
+    background: #8b0000;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@keyframes progress {
+    100% {
+        width: 0;
+    }
+}
+.alert i {
+    font-size: 35px;
+    color: #1a001a;
+    margin-right: 8px;
+}
+.alert.error i {
+    color: #8b0000;
+}
+
+@keyframes slowGlow {
+  0% {
+    filter: brightness(1);
+  }
+  50% {
+    filter: brightness(1.15) saturate(1.2);
+  }
+  100% {
+    filter: brightness(1);
+  }
+}
+
+
+@keyframes textGlow {
+  0% {
+    text-shadow: 0 0 10px #a300a3;
+    color: #b583c6;
+  }
+  50% {
+    text-shadow: 0 0 25px #ff73d1, 0 0 50px #d65ca1;
+    color: #ff73d1;
+  }
+  100% {
+    text-shadow: 0 0 10px #a300a3;
+    color: #b583c6;
+  }
+}
+
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 25px #ff73d1;
+  }
+  50% {
+    box-shadow: 0 0 40px #ff73d1, 0 0 30px #d65ca1;
+  }
+}
+h1, h2, h3, h4, h5, h6, .logo {
+  font-family: 'JapanBento', sans-serif;
+}
