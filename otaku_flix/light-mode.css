@@ -1,0 +1,519 @@
+/* ===== THEME TOGGLE STYLING ===== */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+}
+ 
+.theme-toggle input[type="checkbox"] {
+  display: none;
+}
+
+.theme-label {
+  width: 70px;
+  height: 35px;
+  background: linear-gradient(135deg, #ff00b3, #3f0071); /* Goku Rose */
+  border: 2px solid #ff73d1;
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 10px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 0 0 15px #ff73d1a0;
+}
+
+.theme-label:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff73d1;
+}
+
+.theme-icon {
+  color: white;
+  font-size: 18px;
+  transition: transform 0.4s ease, opacity 0.4s ease;
+}
+
+.theme-icon.light {
+  transform: translateX(60px);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + .theme-label {
+  background: linear-gradient(135deg, #00eaff, #ffffff); /* Ultra Instinct */
+  border-color: #00d9ff;
+  box-shadow: 0 0 15px #00d9ffa8;
+}
+
+input[type="checkbox"]:checked + .theme-label:hover {
+  box-shadow: 0 0 20px #00eaff;
+}
+
+input[type="checkbox"]:checked + .theme-label .theme-icon.dark {
+  transform: translateX(-60px);
+  opacity: 0;
+}
+
+input[type="checkbox"]:checked + .theme-label .theme-icon.light {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+
+
+/* === Base Body & Smooth Transition === */
+body.light-mode {
+  background-color: #f0faff;
+  color: #111;
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* === Header & Nav Links === */
+body.light-mode header {
+  background: #ffffff;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+body.light-mode .logo {
+  color: #007acc;
+  text-shadow: 0 0 10px rgba(0, 122, 204, 0.7);
+}
+body.light-mode nav a {
+  color: #005ba1;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+body.light-mode nav a:hover {
+  color: #00aaff;
+  text-shadow: 0 0 8px rgba(0, 170, 255, 0.6);
+}
+
+/* === Hero Section === */
+body.light-mode .hero {
+  background: transparent;
+  /* backdrop-filter: blur(8px); */
+  box-shadow: inset 0 0 60px rgba(120, 180, 255, 0.2);
+}
+
+body.light-mode .hero-content {
+  background-color: rgba(21, 43, 53, 0.486); /* brighter glass effect */
+  box-shadow: 0 0 30px rgba(0, 255, 255, 0.25), 0 0 40px rgba(0, 195, 255, 0.15);
+  color: #111; /* slightly darker for better contrast */
+  /* backdrop-filter: blur(10px); */
+  border: 1px solid rgba(180, 235, 255, 0.3);
+}
+
+body.light-mode .hero-title {
+  color: #00e0ff;
+  text-shadow: 0 0 15px #00f7ff, 0 0 25px rgba(0, 225, 255, 0.6);
+  animation: textGlowBlue 4s ease-in-out infinite alternate;
+}
+
+body.light-mode .hero-subtitle {
+  color: #f8f2f2;
+  text-shadow: 0 0 10px rgba(200, 240, 255, 0.6), 0 0 18px rgba(180, 230, 255, 0.5);
+}
+@keyframes textGlowBlue {
+  0% {
+    text-shadow: 0 0 10px #00dfff, 0 0 20px #00bfff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00f7ff, 0 0 35px #1ec8ff;
+  }
+}
+
+
+body.light-mode .hero-btn {
+  background-color: #00bfff;
+  color: #fff;
+}
+body.light-mode .hero::after {
+  background-image: url('img/1349744.jpg');
+   filter: brightness(1.3) saturate(1.4);
+  background-size: cover;
+  background-position: center;
+  /* backdrop-filter: blur(2px);  */
+  background-color: rgba(245, 14, 14, 0.15);
+  
+}
+
+body.light-mode .hero-btn:hover {
+  background-color: #009acd;
+  transform: scale(1.05);
+}
+@keyframes textGlowBlue {
+  0% {
+    text-shadow: 0 0 10px #1ec8ff, 0 0 20px #1ec8ff, 0 0 30px #1ec8ff;
+  }
+  100% {
+    text-shadow: 0 0 20px #00ffff, 0 0 35px #00ffff, 0 0 40px #00ffff;
+  }
+}
+
+
+/* === Dropdown & Mobile Nav === */
+body.light-mode .mobile-search-input {
+  border: 2px solid rgba(0, 170, 255, 0.3);
+  background: rgba(255, 255, 255, 0.2);
+  color: #002b44;
+}
+
+body.light-mode .mobile-search-input::placeholder {
+  color: #0077aa;
+}
+
+body.light-mode .mobile-search-input:focus {
+  border-color: #00b8ff;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.4);
+}
+
+body.light-mode .mobile-search-icon {
+  color: #0077aa;
+}
+
+/* === Ultra Instinct Mode === */
+body.ultrainstinct .mobile-search-input {
+  border: 2px solid rgba(120, 195, 255, 0.6);
+  background: rgba(200, 240, 255, 0.05);
+  /* backdrop-filter: blur(6px); */
+  color: #cceeff;
+}
+
+body.ultrainstinct .mobile-search-input::placeholder {
+  color: #a3dcff;
+}
+
+body.ultrainstinct .mobile-search-input:focus {
+  border-color: #8edaff;
+  box-shadow: 0 0 15px rgba(120, 195, 255, 0.4);
+}
+
+body.ultrainstinct .mobile-search-icon {
+  color: #a3dcff;
+}
+body.light-mode .dropdown-menu {
+  background: rgba(245, 255, 255, 0.95);
+  box-shadow: 0 0 10px rgba(0, 122, 204, 0.2);
+}
+body.light-mode .dropdown-menu a {
+  color: #004080;
+}
+body.light-mode .dropdown-menu a:hover {
+  background: rgba(0, 170, 255, 0.1);
+  color: #003366;
+}
+body.light-mode .mobile-nav {
+  background: rgba(255, 255, 255, 0.95);
+  border-top: 2px solid rgba(0, 122, 204, 0.3);
+}
+body.light-mode .mobile-nav a {
+  color: #005ba1;
+}
+/* === Light Mode Overrides === */
+/* 🔷 Search Input */
+
+body.light-mode .search-input {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+body.light-mode .search-input::placeholder {
+  color: #666;
+}
+
+body.light-mode .search-input:focus {
+  box-shadow: 0 0 5px #00bfff;
+}
+
+/* 🔷 Search Icon */
+body.light-mode .search-icon {
+  color: #555;
+}
+
+body.light-mode .search-icon:hover {
+  color: #00aaff;
+}
+
+/* 🔷 Hamburger Icon */
+body.light-mode .hamburger {
+  color: #00bfff;
+}
+
+/* 🔷 Login Button - Ultra Instinct Glow */
+body.light-mode .user-auth .login-btn-modal {
+  color: #00aaff;
+  background-color: transparent;
+  border: 2px solid #00aaff;
+  border-radius: 40px;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+/* === Light Mode === */
+body.light-mode .avatar-circle {
+  background: linear-gradient(135deg, #e0f7ff, #b2e5ff);
+  color: #004466;
+  box-shadow: 0 0 10px rgba(0, 170, 255, 0.3);
+}
+
+body.light-mode .dropdown {
+  background: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 0 15px rgba(0, 200, 255, 0.2);
+}
+
+body.light-mode .dropdown a {
+  color: #003344;
+}
+
+body.light-mode .dropdown a:hover {
+  color: #00b8ff;
+}
+
+/* === Ultra Instinct Mode === */
+body.ultrainstinct .avatar-circle {
+  background: linear-gradient(135deg, #b3ecff, #a259ff);
+  color: #001f33;
+  box-shadow: 0 0 15px rgba(120, 195, 255, 0.7);
+}
+
+body.ultrainstinct .dropdown {
+  background: rgba(200, 240, 255, 0.1);
+  /* backdrop-filter: blur(10px); */
+  border: 1px solid rgba(120, 195, 255, 0.3);
+  box-shadow: 0 0 20px rgba(180, 220, 255, 0.3);
+}
+
+body.ultrainstinct .dropdown a {
+  color: #c9eaff;
+}
+
+body.ultrainstinct .dropdown a:hover {
+  color: #ffffff;
+}
+body.light-mode .user-auth .login-btn-modal::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, #00aaff, #1e90ff);
+  z-index: -1;
+  transition: left 0.4s ease;
+  box-shadow: 0 0 10px #00bfff;
+  border-radius: 40px;
+}
+
+body.light-mode .user-auth .login-btn-modal:hover::before {
+  left: 0;
+}
+
+body.light-mode .user-auth .login-btn-modal:hover {
+  color: #fff;
+  box-shadow: 0 0 5px #00bfff;
+  border-color: #00aaff;
+}
+
+/* 🔷 Auth Modal */
+body.light-mode .auth-modal {
+  background: rgba(15, 20, 40, 0.85);
+  border: 1px solid rgba(120, 195, 255, 0.4);
+  box-shadow: 0 0 30px rgba(120, 195, 255, 0.7);
+  color: #b3d9ff;
+}
+
+/* 🔷 Modal Title */
+body.light-mode .auth-modal .form-box h2 {
+  color: #71c8ff;
+  text-shadow: 0 0 15px #1ec8ff;
+}
+
+/* 🔷 Close Button */
+body.light-mode .auth-modal .close-btn-modal {
+  background: #1ec8ff;
+  color: #001f33;
+}
+
+body.light-mode .auth-modal .close-btn-modal:hover {
+  background: #8ddfff;
+  color: #003344;
+  box-shadow: 0 0 18px #1ec8ff;
+}
+/* 🔷 Auth Input Box */
+body.light-mode .input-box {
+  position: relative;
+  width: 100%;
+  height: clamp(36px, 5vw, 40px);
+  margin: clamp(20px, 6vw, 30px) 0;
+}
+
+body.light-mode .input-box input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  border: 2px solid rgba(120, 195, 255, 0.4);
+  outline: none;
+  border-radius: 40px;
+  font-size: clamp(14px, 4vw, 16px);
+  color: #b3d9ff;
+  padding: clamp(12px, 4vw, 20px) 45px clamp(12px, 4vw, 20px) 20px;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+body.light-mode .input-box input::placeholder {
+  color: #7bb8e1;
+}
+
+body.light-mode .input-box input:focus {
+  border-color: #1ec8ff;
+  box-shadow: 0 0 12px #1ec8ff;
+}
+
+body.light-mode .input-box i {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: clamp(18px, 4vw, 20px);
+  color: #b3d9ff;
+}
+
+/* 🔷 Ultra Instinct Button */
+body.light-mode .btn {
+  width: 100%;
+  height: clamp(38px, 6vw, 45px);
+  background: #1ec8ff;
+  border-radius: 40px;
+  border: none;
+  box-shadow: 0 0 15px rgba(30, 200, 255, 0.7);
+  color: #001f33;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: clamp(14px, 4vw, 18px);
+  transition: all 0.3s ease;
+}
+
+body.light-mode .btn:hover {
+  background: #71c8ff;
+  color: #002b44;
+  box-shadow: 0 0 25px #71c8ff;
+  transform: scale(1.1);
+  animation: lightpulseGlow 1.8s ease-in-out infinite;
+}
+
+/* 🔷 Paragraph Styling */
+body.light-mode .auth-modal p {
+  font-size: clamp(14px, 4vw, 16px);
+  color: #b3d9ff;
+  text-align: center;
+  margin-top: 20px;
+}
+
+/* 🔷 Register & Login Link */
+body.light-mode .register-link,
+body.light-mode .Login-link {
+  color: #1ec8ff !important;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+  text-shadow: none !important;
+}
+
+body.light-mode .register-link:hover,
+body.light-mode .Login-link {
+  color: #71c8ff;
+}
+
+body.light-mode .register-link,
+body.light-mode .Login-link:hover::after {
+  transform: scaleX(1);
+}
+
+/* 🔷 Toggle Switch Colors */
+body.light-mode .theme-label {
+  background: linear-gradient(135deg, #00eaff, #0066cc);
+  border-color: #00aaff;
+  box-shadow: 0 0 15px rgba(0, 170, 255, 0.7);
+}
+
+body.light-mode .theme-label:hover {
+  box-shadow: 0 0 20px rgba(0, 170, 255, 0.9);
+}
+
+body.light-mode .theme-label .theme-icon {
+  color: white;
+}
+
+/* 🔷 Ultra Instinct Body Background + Glow */
+body.light-mode {
+  background-color: #0F0F1A;
+}
+
+body.light-mode .ultra-glow {
+  text-shadow: 0 0 8px #4FC3F7, 0 0 12px #A259FF;
+}
+
+body.light-mode .btn-ultra {
+  background: linear-gradient(90deg, #4FC3F7 0%, #A259FF 100%);
+}
+body.light-mode .alert-box {
+  background: rgba(255, 255, 255, 0.6);
+  /* backdrop-filter: blur(12px); */
+  color: #222;
+  border: 1px solid rgba(0, 200, 255, 0.3);
+  box-shadow: 0 0 12px rgba(0, 200, 255, 0.15);
+}
+
+body.light-mode .alert::after {
+  background: #00c2ff;
+  box-shadow: 0 0 8px #00c2ff;
+}
+
+body.light-mode .alert.error::after {
+  background: #d00000;
+  box-shadow: 0 0 10px #d00000;
+}
+
+body.light-mode .alert i {
+  color: #0088cc;
+}
+
+body.light-mode .alert.error i {
+  color: #d00000;
+}
+
+/* ===== Ultra Instinct Mode ===== */
+body.ultrainstinct .alert-box {
+  background: rgba(180, 240, 255, 0.08);
+  /* backdrop-filter: blur(14px); */
+  color: #eafcff;
+  border: 1px solid rgba(120, 200, 255, 0.4);
+  box-shadow: 0 0 20px rgba(120, 200, 255, 0.2);
+}
+
+body.ultrainstinct .alert::after {
+  background: #8be9ff;
+  box-shadow: 0 0 10px #8be9ff;
+}
+
+body.ultrainstinct .alert.error::after {
+  background: #ff3c3c;
+  box-shadow: 0 0 12px #ff3c3c;
+}
+
+body.ultrainstinct .alert i {
+  color: #b3ecff;
+}
+
+body.ultrainstinct .alert.error i {
+  color: #ff3c3c;
+}
+/* 🔷 Keyframes — do NOT wrap this! */
+@keyframes lightpulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 10px #1ec8ff, 0 0 20px #1ec8ff;
+  }
+  50% {
+    box-shadow: 0 0 20px #71c8ff, 0 0 30px #71c8ff;
+  }
+}
